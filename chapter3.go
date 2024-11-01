@@ -8,4 +8,15 @@ import (
 
 func main() {
 	fmt.Println("chapter 3")
+	try1()
+}
+
+func try1() {
+	var sum int
+	sum = 5 + 6 + 3 + 20
+	avg := sum / 3
+
+	if float32(avg) > 4.5 {
+		fmt.Println("good")
+	}
 }

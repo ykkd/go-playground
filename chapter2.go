@@ -87,7 +87,7 @@ func constants() {
 func controlSyntax() {
 	ifStatement()
 	switchStatement()
-	loopStatement()å
+	loopStatement()
 }
 
 func ifStatement() {
