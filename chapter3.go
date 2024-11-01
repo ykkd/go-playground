@@ -9,7 +9,7 @@ import (
 
 func main() {
 	fmt.Println("chapter 3")
-	try2()
+	functionTypeExample()
 }
 
 func try1() {
@@ -99,4 +99,127 @@ func try2() {
 		sum += slice[i]
 	}
 	fmt.Println(sum)
+}
+
+// MARK: - map
+func mapInitializationExample() {
+	// 初期化方法いろいろ
+	var m map[string]int
+
+	// makeで初期化
+	m = make(map[string]int)
+
+	// 容量指定
+	m = make(map[string]int, 10)
+
+	// リテラルで初期化
+	n := map[string]int{"x": 10, "y": 30}
+
+	// 空の場合
+	o := map[string]int{}
+
+	fmt.Println(m, n, o)
+}
+
+func mapControlExample() {
+	m := map[string]int{"x": 10, "y": 20}
+	fmt.Println(m["x"]) // key指定
+
+	m["z"] = 30
+
+	// 存在確認
+	n, ok := m["z"]
+	fmt.Println(n, ok)
+
+	delete(m, "z")
+
+	n2, ok2 := m["z"]
+
+	fmt.Println(n2, ok2)
+}
+
+func complexComposite() {
+	// スライスの要素がスライス
+	var a [][]int = [][]int{[]int{1, 2, 3}, []int{1, 2, 3}}
+	fmt.Println(a)
+
+	// mapの値がスライス
+	var b map[string][]int = map[string][]int{"x": []int{1, 2, 3}, "y": []int{1, 2}}
+	fmt.Println(b)
+
+	// 構造体のフィールドが構造体
+	var B struct {
+		A struct {
+			N int
+		}
+	}
+
+	fmt.Println(B)
+}
+
+// MARK: - ユーザー定義型
+func userDefinedType() {
+	// type 型名　型
+	type MyInt int
+
+	type Person struct {
+		Name string
+	}
+
+	// 同じUnderlying typeを持つ型同士は変換可能
+	// 上記のMyIntとintは変換可能
+}
+
+func typeAlias() {
+	// MARK: - 型エイリアス
+	// ユーザー定義型と異なり、完全に同じ型。
+	type IntAlias = int
+
+	// 型名を出力すると同じ元の型名を出す
+	fmt.Printf("%T", IntAlias(1))
+}
+
+// MARK: - 関数
+func add(x int, y int) int {
+	return x + y
+}
+
+func useAdd() {
+	result := add(1, 2)
+	fmt.Println(result)
+}
+
+// 引数の型をまとめて記述可能
+func swap(x, y int) (int, int) {
+	return y, x
+}
+
+func useSwap() {
+	resultA, resultB := swap(1, 2)
+	fmt.Println(resultA, resultB)
+}
+
+// こうも書ける
+func swap2(x, y int) (x2, y2 int) {
+	y2, x2 = x, y
+	return
+}
+
+// MARK: - 無名関数（クロージャ）
+func useClosure() {
+	const message = "Hello!"
+
+	func() {
+		fmt.Println(message)
+	}()
+}
+
+func functionTypeExample() {
+	fs := make([]func() string, 2)
+	fs[0] = func() string { return "hoge" }
+	fs[1] = func() string { return "fuga" }
+
+	for index, value := range fs {
+		fmt.Println(index, value())
+	}
 }
