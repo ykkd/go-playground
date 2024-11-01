@@ -43,4 +43,27 @@ func composite1() {
 	// 4. 配列 要素の型は同じ。要素数を指定する必要があり、かつ、要素数が違えば別の型。要素数を指定しないとスライス型になる
 	var array [5]int
 	fmt.Println(array) // 0 0 0 0 0
+
+	// 配列初期化方法
+	var array1 [5]int
+	fmt.Println(array1) // 0 0 0 0 0
+
+	var array2 = [5]int{10, 20, 30, 40, 50}
+	fmt.Println(array2) // 10 20 30 40 50
+
+	array3 := [...]int{10, 20, 30, 40, 50}
+	fmt.Println(array3) // 10 20 30 40 50
+
+	// index: valueで特定の要素の値を指定。indexは0始まり
+	array4 := [...]int{5: 50, 10: 100}
+	fmt.Println(array4) // 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 100
+
+	// 配列の操作
+	array5 := [...]int{10, 20, 30, 40, 50}
+
+	fmt.Println(array5[3]) // 40
+
+	fmt.Println(len(array5)) // 5
+
+	fmt.Println(array5[1:2]) // 20 (index1以上、2未満)
 }
