@@ -161,9 +161,9 @@ func oddOrEven() {
 // MARK: - 演習
 
 func omikuji() {
-	array := []int{1, 2, 3, 4, 5, 6}
-	randomIndex := randomValue(array)
-	selectedNumber := array[randomIndex]
+	slice := []int{1, 2, 3, 4, 5, 6}
+	randomIndex := randomValue(slice)
+	selectedNumber := slice[randomIndex]
 
 	switch selectedNumber {
 	case 1:
