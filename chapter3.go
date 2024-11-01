@@ -3,10 +3,9 @@
 package main
 
 import (
-	fmt
+	"fmt"
 )
 
 func main() {
 	fmt.Println("chapter 3")
 }
-
