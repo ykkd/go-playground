@@ -9,7 +9,7 @@ import (
 
 func main() {
 	fmt.Println("chapter 3")
-	functionTypeExample()
+	useMyIntMethod()
 }
 
 func try1() {
@@ -222,4 +222,30 @@ func functionTypeExample() {
 	for index, value := range fs {
 		fmt.Println(index, value())
 	}
+}
+
+// MARK: - Method (method is different from function)
+
+// レシーバとして型を指定する
+
+type toStringInt int
+
+func (number toStringInt) String() string {
+	return fmt.Sprintf("%x", int(number))
+}
+
+func useMethod() {
+	var number toStringInt = 0
+	fmt.Println(number.String())
+}
+
+type myInt int
+
+func (n *myInt) Inc() { *n++ }
+
+func useMyIntMethod() {
+	var n myInt
+	fmt.Println(n)
+	n.Inc()
+	fmt.Println(n)
 }
