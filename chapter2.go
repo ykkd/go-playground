@@ -12,6 +12,10 @@ import (
 
 var n int = 100
 
+func main() {
+	omikuji2()
+}
+
 func variables() {
 	// 変数宣言と代入を分ける（関数外＝パッケージレベルでは不可）
 	var n2 int
